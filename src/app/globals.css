@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 26 115 232;
+    --primary-hover: 21 87 176;
+    --secondary: 108 99 255;
+    --surface: 255 255 255;
+    --background: 248 249 250;
+    --text-primary: 31 41 55;
+    --text-secondary: 107 114 128;
+    --error: 239 68 68;
+    --success: 16 185 129;
+    --border: 229 231 235;
+  }
+
+  .dark {
+    --primary: 59 130 246;
+    --primary-hover: 96 165 250;
+    --secondary: 139 131 255;
+    --surface: 31 41 55;
+    --background: 17 24 39;
+    --text-primary: 243 244 246;
+    --text-secondary: 156 163 175;
+    --border: 55 65 81;
+  }
+}
+
+body {
+  background: rgb(var(--background));
+  color: rgb(var(--text-primary));
+  font-family: var(--font-sans);
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: rgb(55 65 81);
+  color: rgb(243 244 246);
+}
+
+.dark input:focus,
+.dark textarea:focus {
+  border-color: rgb(var(--primary));
+}
+
+@keyframes slide-in-from-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-in {
+  animation: slide-in-from-right 0.2s ease-out;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

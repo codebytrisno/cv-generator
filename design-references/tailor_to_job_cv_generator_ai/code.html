@@ -1,0 +1,390 @@
+<!DOCTYPE html><html class="light" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Tailor CV - CV Generator AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-background": "#121c2a",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#c4c0ff",
+                        "surface-container": "#e6eeff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#000703",
+                        "outline-variant": "#c1c6d6",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "secondary-fixed": "#e3dfff",
+                        "on-secondary-fixed-variant": "#3622ca",
+                        "inverse-primary": "#adc7ff",
+                        "surface": "#f8f9ff",
+                        "secondary": "#4d41df",
+                        "on-secondary-container": "#fffbff",
+                        "surface-tint": "#005bc0",
+                        "on-secondary-fixed": "#100069",
+                        "on-primary-fixed": "#001a41",
+                        "on-surface-variant": "#414754",
+                        "on-surface": "#121c2a",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#d9e3f6",
+                        "on-primary-container": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#00885d",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary": "#006c49",
+                        "surface-container-high": "#dee9fc",
+                        "inverse-surface": "#27313f",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed": "#002113",
+                        "background": "#f8f9ff",
+                        "secondary-container": "#675df9",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-highest": "#d9e3f6",
+                        "primary-container": "#1a73e8",
+                        "surface-dim": "#d0dbed",
+                        "outline": "#727785",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "primary": "#005bbf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "xxl": "48px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "label": ["Inter"],
+                        "h3": ["Inter"],
+                        "body": ["Inter"],
+                        "h1": ["Inter"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                        "h3": ["18px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                        "body": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(229, 231, 235, 0.5); }
+        .comparison-slider { position: relative; overflow: hidden; }
+        .comparison-overlay { position: absolute; top: 0; left: 0; height: 100%; width: 50%; border-right: 2px solid #1a73e8; z-index: 10; overflow: hidden; transition: width 0.1s ease; }
+        .handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: #1a73e8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 20; cursor: ew-resize; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }
+        .diff-highlight { background-color: rgba(0, 108, 73, 0.1); border-left: 3px solid #006c49; padding-left: 8px; }
+        .skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
+        @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-lg py-md max-w-7xl mx-auto">
+<h1 class="font-h2 text-h2 font-bold text-primary">CV Generator AI</h1>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body" href="#">Builder</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body" href="#">Cover Letter</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body text-body" href="#">Tailor</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body" href="#">My CVs</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-sm rounded-full transition-colors">dark_mode</button>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">JD</div>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-7xl mx-auto w-full px-lg py-xl">
+<!-- Hero Section -->
+<div class="mb-xl text-center md:text-left">
+<h2 class="font-h1 text-h1 text-on-background mb-sm">Sesuaikan CV dengan Job Desc</h2>
+<p class="font-body text-body text-on-surface-variant max-w-2xl">Optimalkan CV kamu menggunakan AI agar lolos sistem ATS dan menarik perhatian recruiter. Cukup pilih CV dan tempel deskripsi pekerjaan.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Left Column: Input Form -->
+<section class="lg:col-span-5 space-y-lg">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<form class="space-y-md" id="tailorForm">
+<div class="space-y-xs">
+<label class="font-label text-label text-on-surface-variant">Pilih CV lo</label>
+<div class="relative">
+<select class="w-full h-12 px-md border border-outline-variant rounded-xl appearance-none bg-surface focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all font-body text-body">
+<option>CV Frontend Developer - Juni 2023</option>
+<option>CV UI/UX Designer - Draft</option>
+<option>CV Generalist - 2024</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label text-label text-on-surface-variant">Paste Job Description di sini</label>
+<textarea class="w-full min-h-[280px] p-md border border-outline-variant rounded-xl bg-surface focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all font-body text-body resize-none" placeholder="Tempel detail pekerjaan, tanggung jawab, dan kualifikasi yang diminta perusahaan..."></textarea>
+</div>
+<button class="w-full bg-primary hover:bg-[#1557B0] text-white font-bold h-12 rounded-xl flex items-center justify-center gap-sm shadow-sm transition-all active:scale-95 group" type="submit">
+<span class="material-symbols-outlined text-[20px] group-hover:rotate-12 transition-transform">auto_fix_high</span>
+<span>Sesuaikan CV Sekarang</span>
+</button>
+</form>
+</div>
+<!-- AI Insights Card (Additional Value) -->
+<div class="bg-tertiary-container/10 border border-tertiary-container/20 rounded-xl p-md flex gap-md items-start">
+<span class="material-symbols-outlined text-tertiary">info</span>
+<div>
+<h4 class="font-label text-label text-tertiary uppercase tracking-wider">AI Insight</h4>
+<p class="font-body text-body text-on-surface-variant mt-1">Sistem kami akan menganalisis keyword penting seperti <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, dan <strong>Agile Methodology</strong> untuk diintegrasikan ke pengalaman kerjamu.</p>
+</div>
+</div>
+</section>
+<!-- Right Column: Result View -->
+<section class="lg:col-span-7 flex flex-col h-full">
+<div class="flex-grow flex flex-col items-center justify-center border-2 border-dashed border-outline-variant rounded-xl p-xxl text-center bg-surface-container-low/30 min-h-[500px]" id="emptyResult">
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-[40px] text-outline">query_stats</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-sm">Belum ada analisis</h3>
+<p class="font-body text-body text-on-surface-variant max-w-xs">Isi form di samping untuk mulai melihat optimasi CV kamu secara side-by-side.</p>
+</div>
+<div class="hidden flex-grow flex flex-col space-y-md" id="activeResult">
+<div class="flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-on-background">Preview Optimasi</h3>
+<div class="flex gap-sm">
+<div class="flex items-center gap-xs px-sm py-xs bg-surface-container-high rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label text-[10px] uppercase text-on-surface-variant">Lama</span>
+</div>
+<div class="flex items-center gap-xs px-sm py-xs bg-tertiary-container/20 rounded-full">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label text-[10px] uppercase text-tertiary">Baru (Optimized)</span>
+</div>
+</div>
+</div>
+<!-- Comparison Slider Container -->
+<div class="comparison-slider w-full flex-grow bg-white border border-outline-variant rounded-xl shadow-md overflow-hidden relative" id="sliderContainer">
+<!-- NEW (Optimized) Layer - The Background -->
+<div class="p-lg md:p-xl w-full h-full select-none">
+<div class="max-w-2xl mx-auto space-y-lg">
+<div class="border-b-2 border-primary pb-sm flex justify-between items-end">
+<div>
+<h2 class="font-h2 text-h2 text-on-background">JOKO DARMOWO</h2>
+<p class="font-body text-body text-primary font-bold">Senior Frontend Engineer | Web Performance Specialist</p>
+</div>
+<div class="text-right font-caption text-caption text-on-surface-variant">
+                                        Jakarta, Indonesia<br>joko@email.com
+                                    </div>
+</div>
+<div class="space-y-sm">
+<h3 class="font-label text-label uppercase tracking-widest text-primary border-b border-outline-variant pb-1">Profil Profesional</h3>
+<p class="font-body text-body text-on-surface leading-relaxed diff-highlight">
+                                        Software Engineer berpengalaman 5+ tahun dalam membangun aplikasi web yang skalabel menggunakan <strong>Next.js dan React</strong>. Terbukti sukses meningkatkan performa load time hingga 40% dan mahir dalam optimasi <strong>SEO Core Web Vitals</strong> sesuai kebutuhan [Nama Perusahaan].
+                                    </p>
+</div>
+<div class="space-y-sm">
+<h3 class="font-label text-label uppercase tracking-widest text-primary border-b border-outline-variant pb-1">Pengalaman Kerja</h3>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between font-bold">
+<span>Frontend Lead at TechIndo</span>
+<span>2020 - Sekarang</span>
+</div>
+<ul class="list-disc ml-md mt-sm font-body text-body space-y-1 text-on-surface">
+<li class="diff-highlight">Memimpin migrasi arsitektur ke <strong>Micro-frontends</strong> meningkatkan efisiensi tim sebesar 25%.</li>
+<li>Mengimplementasikan CI/CD pipeline menggunakan GitHub Actions.</li>
+<li class="diff-highlight">Berkolaborasi dengan tim Produk untuk mendesain <strong>Design System</strong> yang reusable.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- OLD Layer - The Overlay -->
+<div class="comparison-overlay bg-white p-lg md:p-xl select-none" id="overlay">
+<div class="max-w-2xl mx-auto space-y-lg opacity-60">
+<div class="border-b-2 border-gray-300 pb-sm flex justify-between items-end">
+<div>
+<h2 class="font-h2 text-h2 text-on-background">JOKO DARMOWO</h2>
+<p class="font-body text-body text-on-surface-variant">Frontend Developer</p>
+</div>
+<div class="text-right font-caption text-caption text-on-surface-variant">
+                                        Jakarta, Indonesia<br>joko@email.com
+                                    </div>
+</div>
+<div class="space-y-sm">
+<h3 class="font-label text-label uppercase tracking-widest text-on-surface-variant border-b border-outline-variant pb-1">Profil Profesional</h3>
+<p class="font-body text-body text-on-surface-variant leading-relaxed">
+                                        Saya adalah developer yang suka membuat website menggunakan React. Saya sudah bekerja selama beberapa tahun dan mencari tantangan baru di perusahaan yang berkembang.
+                                    </p>
+</div>
+<div class="space-y-sm">
+<h3 class="font-label text-label uppercase tracking-widest text-on-surface-variant border-b border-outline-variant pb-1">Pengalaman Kerja</h3>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between font-bold">
+<span>Frontend Lead at TechIndo</span>
+<span>2020 - Sekarang</span>
+</div>
+<ul class="list-disc ml-md mt-sm font-body text-body space-y-1 text-on-surface-variant">
+<li>Mengerjakan aplikasi web untuk klien.</li>
+<li>Menggunakan GitHub untuk manajemen code.</li>
+<li>Bekerja sama dengan tim UI/UX.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Handle -->
+<div class="handle" id="sliderHandle">
+<span class="material-symbols-outlined">unfold_more_double</span>
+</div>
+</div>
+<div class="flex gap-md pt-md">
+<button class="flex-grow bg-primary-container text-on-primary-container font-bold h-12 rounded-xl flex items-center justify-center gap-sm transition-all hover:brightness-95">
+<span class="material-symbols-outlined">edit</span>
+                            Edit Manual
+                        </button>
+<button class="flex-grow bg-primary text-white font-bold h-12 rounded-xl flex items-center justify-center gap-sm transition-all hover:bg-[#1557B0] shadow-md">
+<span class="material-symbols-outlined">download</span>
+                            Download Optimized CV
+                        </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant mt-xxl">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-lg py-xl gap-md max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<span class="font-h3 text-h3 font-bold text-primary">CV Generator AI</span>
+<p class="font-caption text-caption text-on-surface-variant">Made with love in Indonesia. 100% Gratis &amp; Open Source.</p>
+</div>
+<div class="flex gap-lg">
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all" href="#">Github</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-sm pb-md pt-sm bg-surface-container-lowest border-t border-outline-variant shadow-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-label">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label text-label">Builder</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label text-label">Letter</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined">troubleshoot</span>
+<span class="font-label text-label">Tailor</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label">Saved</span>
+</a>
+</nav>
+<script>
+        // Form Submission Logic
+        const form = document.getElementById('tailorForm');
+        const emptyResult = document.getElementById('emptyResult');
+        const activeResult = document.getElementById('activeResult');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Visual feedback for processing
+            const btn = form.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span><span>Menganalisis...</span>`;
+            btn.disabled = true;
+
+            setTimeout(() => {
+                emptyResult.classList.add('hidden');
+                activeResult.classList.remove('hidden');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                
+                // Reset slider position
+                updateSlider(50);
+            }, 1500);
+        });
+
+        // Comparison Slider Logic
+        const sliderContainer = document.getElementById('sliderContainer');
+        const overlay = document.getElementById('overlay');
+        const handle = document.getElementById('sliderHandle');
+
+        function updateSlider(percentage) {
+            if (percentage < 0) percentage = 0;
+            if (percentage > 100) percentage = 100;
+            overlay.style.width = percentage + '%';
+            handle.style.left = percentage + '%';
+        }
+
+        let isDragging = false;
+
+        const startDragging = () => isDragging = true;
+        const stopDragging = () => isDragging = false;
+
+        const onMove = (e) => {
+            if (!isDragging) return;
+            
+            const rect = sliderContainer.getBoundingClientRect();
+            const x = (e.pageX || e.touches[0].pageX) - rect.left;
+            const percentage = (x / rect.width) * 100;
+            
+            updateSlider(percentage);
+        };
+
+        handle.addEventListener('mousedown', startDragging);
+        handle.addEventListener('touchstart', startDragging);
+        window.addEventListener('mouseup', stopDragging);
+        window.addEventListener('touchend', stopDragging);
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('touchmove', onMove);
+
+        // Responsive handling for slider container on click
+        sliderContainer.addEventListener('click', (e) => {
+            if (isDragging) return;
+            const rect = sliderContainer.getBoundingClientRect();
+            const x = e.pageX - rect.left;
+            const percentage = (x / rect.width) * 100;
+            updateSlider(percentage);
+        });
+    </script>
+</body></html>

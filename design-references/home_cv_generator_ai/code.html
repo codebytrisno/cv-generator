@@ -1,0 +1,326 @@
+<!DOCTYPE html><html class="light" lang="id" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>CV Generator AI - Bikin CV ATS Professional Gratis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "on-background": "#121c2a",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#c4c0ff",
+                    "surface-container": "#e6eeff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#000703",
+                    "outline-variant": "#c1c6d6",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#adc7ff",
+                    "on-primary-fixed-variant": "#004493",
+                    "secondary-fixed": "#e3dfff",
+                    "on-secondary-fixed-variant": "#3622ca",
+                    "inverse-primary": "#adc7ff",
+                    "surface": "#f8f9ff",
+                    "secondary": "#4d41df",
+                    "on-secondary-container": "#fffbff",
+                    "surface-tint": "#005bc0",
+                    "on-secondary-fixed": "#100069",
+                    "on-primary-fixed": "#001a41",
+                    "on-surface-variant": "#414754",
+                    "on-surface": "#121c2a",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#d9e3f6",
+                    "on-primary-container": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#00885d",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "tertiary": "#006c49",
+                    "surface-container-high": "#dee9fc",
+                    "inverse-surface": "#27313f",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "surface-bright": "#f8f9ff",
+                    "on-tertiary-fixed": "#002113",
+                    "background": "#f8f9ff",
+                    "secondary-container": "#675df9",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container-highest": "#d9e3f6",
+                    "primary-container": "#1a73e8",
+                    "surface-dim": "#d0dbed",
+                    "outline": "#727785",
+                    "surface-container-low": "#eff4ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#d8e2ff",
+                    "tertiary-fixed": "#6ffbbe",
+                    "primary": "#005bbf"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "xxl": "48px"
+            },
+            "fontFamily": {
+                    "h2": ["Inter"],
+                    "label": ["Inter"],
+                    "h3": ["Inter"],
+                    "body": ["Inter"],
+                    "h1": ["Inter"],
+                    "caption": ["Inter"]
+            },
+            "fontSize": {
+                    "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "h3": ["18px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                    "body": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .cv-card-shadow { box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .glass-nav { backdrop-filter: blur(8px); background-color: rgba(255, 255, 255, 0.8); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Shell -->
+<nav class="sticky top-0 z-50 bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-lg py-md max-w-7xl mx-auto">
+<div class="font-h2 text-h2 font-bold text-primary">CV Generator AI</div>
+<div class="hidden md:flex gap-xl items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body text-body" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body" href="#">Builder</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body" href="#">Cover Letter</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body" href="#">Tailor</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body" href="#">My CVs</a>
+<button class="material-symbols-outlined text-on-surface-variant p-sm hover:bg-surface-container-low rounded-full transition-all">dark_mode</button>
+</div>
+<div class="md:hidden">
+<button class="material-symbols-outlined text-on-surface-variant">menu</button>
+</div>
+</div>
+</nav>
+<main class="flex flex-col items-center">
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden pt-xxl pb-xxl px-lg">
+<div class="max-w-4xl mx-auto text-center z-10 relative">
+<span class="inline-block px-md py-xs bg-tertiary-container text-on-tertiary-container rounded-full font-label text-label mb-md">
+                    ⚡ 100% Gratis &amp; Open Source
+                </span>
+<h1 class="font-h1 text-h1 text-on-surface mb-md max-w-2xl mx-auto md:text-5xl lg:text-6xl leading-tight">
+                    Bikin CV ATS Professional Gratis Pake AI
+                </h1>
+<p class="font-body text-body text-on-surface-variant mb-xl max-w-xl mx-auto text-lg">
+                    100% Gratis, No Paywall. Ga perlu login, data aman di browser lo. Biar AI yang ngerapiin pengalaman kerja lo jadi bahasa professional.
+                </p>
+<!-- AI Chat Input Box -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-lg max-w-2xl mx-auto transition-all focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent">
+<textarea class="w-full bg-transparent border-none focus:ring-0 font-body text-body text-on-surface resize-none h-32 placeholder:text-outline" placeholder="Ceritain background lo... (Contoh: Gw lulusan S1 Akuntansi, pernah magang di Big 4 selama 6 bulan, jago excel dan audit)"></textarea>
+<div class="flex justify-between items-center mt-md">
+<div class="flex gap-sm text-outline">
+<span class="material-symbols-outlined text-[20px]">magic_button</span>
+<span class="font-caption text-caption">AI Optimizer Aktif</span>
+</div>
+<button class="bg-primary hover:bg-[#1557B0] text-on-primary px-xl py-sm rounded-lg font-label text-label flex items-center gap-sm transition-all active:scale-95 shadow-sm">
+                            Buat CV Sekarang
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="mt-lg flex justify-center gap-xl">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary">verified_user</span>
+<span class="font-caption text-caption">Privasi Aman</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary">description</span>
+<span class="font-caption text-caption">ATS-Friendly</span>
+</div>
+</div>
+</div>
+<!-- Atmospheric BG Decor -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-10 pointer-events-none -z-10">
+<div class="absolute top-[-10%] left-[-10%] w-64 h-64 bg-primary blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-80 h-80 bg-secondary blur-[120px] rounded-full"></div>
+</div>
+</section>
+<!-- Stats Bar -->
+<section class="w-full bg-surface-container-low border-y border-outline-variant py-lg">
+<div class="max-w-7xl mx-auto flex flex-wrap justify-around gap-lg px-lg text-center">
+<div class="flex flex-col">
+<span class="font-h2 text-h2 text-primary">10K+</span>
+<span class="font-caption text-caption text-on-surface-variant">CV Dibuat</span>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant hidden md:block"></div>
+<div class="flex flex-col">
+<span class="font-h2 text-h2 text-primary">20+</span>
+<span class="font-caption text-caption text-on-surface-variant">Template ATS</span>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant hidden md:block"></div>
+<div class="flex flex-col">
+<span class="font-h2 text-h2 text-primary">100%</span>
+<span class="font-caption text-caption text-on-surface-variant">Gratis Selamanya</span>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="w-full py-xxl px-lg max-w-7xl">
+<div class="text-center mb-xl">
+<h2 class="font-h2 text-h2 text-on-surface">Tools Lengkap buat Lamar Kerja</h2>
+<p class="font-body text-body text-on-surface-variant mt-sm">Semua yang lo butuhin buat tembus screening HRD.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest p-xl rounded-xl border border-outline-variant hover:border-primary transition-all hover:shadow-md cursor-pointer">
+<div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary-container">edit_note</span>
+</div>
+<h3 class="font-h3 text-h3 mb-sm">CV Builder AI</h3>
+<p class="font-body text-body text-on-surface-variant">Rakit CV professional cuma modal deskripsi santai. AI bakal ganti kata-kata lo jadi standar korporat.</p>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest p-xl rounded-xl border border-outline-variant hover:border-primary transition-all hover:shadow-md cursor-pointer">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">description</span>
+</div>
+<h3 class="font-h3 text-h3 mb-sm">Cover Letter AI</h3>
+<p class="font-body text-body text-on-surface-variant">Bikin surat lamaran yang personal dan meyakinkan untuk setiap posisi yang lo lamar secara otomatis.</p>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest p-xl rounded-xl border border-outline-variant hover:border-primary transition-all hover:shadow-md cursor-pointer">
+<div class="w-12 h-12 bg-tertiary-container rounded-lg flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-tertiary-container">troubleshoot</span>
+</div>
+<h3 class="font-h3 text-h3 mb-sm">Tailor to Job</h3>
+<p class="font-body text-body text-on-surface-variant">Tempel deskripsi kerja (JD), dan biarin AI nyesuain poin-poin di CV lo biar makin nyambung sama kebutuhan HRD.</p>
+</div>
+</div>
+</section>
+<!-- How it works -->
+<section class="w-full bg-surface-dim py-xxl px-lg">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-xl">
+<h2 class="font-h2 text-h2 text-on-surface">Cuma 3 Langkah Gampang</h2>
+</div>
+<div class="flex flex-col md:flex-row gap-xl items-start relative">
+<!-- Step 1 -->
+<div class="flex-1 flex flex-col items-center text-center group">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary font-h2 text-h2 mb-md shadow-lg group-hover:scale-110 transition-transform">1</div>
+<h4 class="font-h3 text-h3 mb-xs text-on-surface">Ceritain Diri</h4>
+<p class="font-body text-body text-on-surface-variant">Tulis pengalaman dan skill lo pake bahasa sehari-hari. AI bakal nangkep intinya.</p>
+</div>
+<div class="hidden md:block absolute top-8 left-[33%] w-24 h-px bg-outline-variant"></div>
+<!-- Step 2 -->
+<div class="flex-1 flex flex-col items-center text-center group">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary font-h2 text-h2 mb-md shadow-lg group-hover:scale-110 transition-transform">2</div>
+<h4 class="font-h3 text-h3 mb-xs text-on-surface">AI Generate</h4>
+<p class="font-body text-body text-on-surface-variant">Bim salabim! AI ngerubah input lo jadi poin-poin ATS-friendly yang professional.</p>
+</div>
+<div class="hidden md:block absolute top-8 left-[66%] w-24 h-px bg-outline-variant"></div>
+<!-- Step 3 -->
+<div class="flex-1 flex flex-col items-center text-center group">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary font-h2 text-h2 mb-md shadow-lg group-hover:scale-110 transition-transform">3</div>
+<h4 class="font-h3 text-h3 mb-xs text-on-surface">Download Gratis</h4>
+<p class="font-body text-body text-on-surface-variant">Pilih template, cek preview, terus download PDF. Gak pake bayar, gak pake login.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Template Preview (Carousel-like) -->
+
+<!-- Final CTA -->
+<section class="w-full py-xxl bg-primary-container text-on-primary-container px-lg text-center overflow-hidden relative">
+<div class="max-w-4xl mx-auto z-10 relative">
+<h2 class="font-h1 text-h1 mb-md">Siap Tembus Dream Job?</h2>
+<p class="font-body text-body mb-xl text-lg opacity-90">Bikin CV professional lo cuma dalam 2 menit. Gratis, selamanya.</p>
+<button class="bg-on-primary-container text-primary px-xxl py-md rounded-xl font-h3 text-h3 hover:bg-surface-bright transition-all active:scale-95 shadow-lg">
+                    Coba Sekarang — Gratis!
+                </button>
+</div>
+<!-- Accent Circle -->
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-lg py-xl gap-md max-w-7xl mx-auto">
+<div class="flex flex-col gap-xs items-center md:items-start">
+<div class="font-h3 text-h3 font-bold text-primary">CV Generator AI</div>
+<p class="font-caption text-caption text-on-surface-variant">Made with love in Indonesia. 100% Gratis &amp; Open Source.</p>
+</div>
+<div class="flex gap-lg items-center">
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Terms of Service</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all duration-200 flex items-center gap-xs" href="#">
+                    Github
+                </a>
+</div>
+</div>
+</footer>
+<!-- Mobile Navigation -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-sm pb-md pt-sm shadow-md border-t border-outline-variant bg-surface-container-lowest md:hidden">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label text-label mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label text-label mt-1">Builder</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label text-label mt-1">Letter</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined">troubleshoot</span>
+<span class="font-label text-label mt-1">Tailor</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:bg-surface-container" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-label mt-1">Saved</span>
+</a>
+</nav>
+<script>
+        // Simple smooth scroll behavior for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Theme toggle logic placeholder
+        const themeBtn = document.querySelector('.material-symbols-outlined');
+        if(themeBtn && themeBtn.textContent === 'dark_mode') {
+            themeBtn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+            });
+        }
+    </script>
+</body></html>
