@@ -2,7 +2,7 @@
 
 Buat CV profesional dengan AI, gratis selamanya. Generate CV, cover letter, dan tailor CV sesuai job description — tanpa signup, tanpa paywall.
 
-**Live demo:** [cv-generator.vercel.app](https://cv-generator.vercel.app)
+**Live demo:** [cv-generator-ts.vercel.app](https://cv-generator-ts.vercel.app)
 
 ## Fitur
 
