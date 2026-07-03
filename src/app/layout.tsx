@@ -13,9 +13,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CV Generator AI — Buat CV Profesional Gratis",
+  title: "CV Generator AI",
   description:
     "Buat CV profesional dengan AI, gratis selamanya. Generate CV, cover letter, dan tailor CV sesuai job description — tanpa signup, tanpa paywall.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
